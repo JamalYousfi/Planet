@@ -1,0 +1,134 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background-image: url(../img/space-x.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.box{
+    width: 400px;
+    height: 200px;
+    background: rgb(31, 31, 31);
+    position: relative;
+}
+
+.box::before,
+.box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #ff0000, #00f0f0, #00ff00, #0000ff, 
+    #ff0000, #00f0f0, #00ff00, #0000ff, #f00f0f);
+    width: 100%;
+    height: 100%;
+    background-size: 500%;
+    z-index: -1;
+    transform: scale(1.02);
+    animation: animate 15s infinite;
+}
+
+.box::after{
+    filter: blur(30px);
+}
+
+@keyframes animate {
+    0% { 
+        background-position: 0 0;
+    }
+    50% { 
+        background-position: 300% 0;
+    }
+    100% { 
+        background-position: 0 0;
+    }
+}
+
+/****texte clignotant****/
+ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    color: #484848;
+    font-family: Arial;
+    font-size: 90px;
+    letter-spacing: 15px;
+    animation: flash 1.4s linear infinite;
+}
+
+@keyframes flash {
+    0% {
+        color: #484848;
+        text-shadow: none;
+    }
+    90%{
+        color: #484848;
+        text-shadow: none;
+    }
+    100%{
+        color: #fff900;
+        text-shadow: 0 0 7px #fff900, 0 0 50px #ff6c00;
+    }
+}
+ul li:nth-child(1) {
+    animation-delay: .1s;
+}
+ul li:nth-child(2) {
+    animation-delay: .2s;
+}
+ul li:nth-child(3) {
+    animation-delay: .3s;
+}
+ul li:nth-child(4) {
+    animation-delay: .4s;
+}
+ul li:nth-child(5) {
+    animation-delay: .5s;
+}
+
+/****Planet****/
+#planet {
+    position: absolute;
+    top: 150px;
+    left: -490px;
+    width: 150px;
+    height: 150px;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    100% { 
+        transform: rotate(360deg);
+    }
+}
+
+/****Planet Orbit****/
+#planet-orbit {
+    width: 150px;
+    height: 150px;
+    animation: spin-right 8s linear infinite;
+}
+
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
